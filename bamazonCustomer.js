@@ -45,7 +45,7 @@ inquirer.prompt([
 
       	connection.query("SELECT * FROM products WHERE ?",  {id: answers.buy}, function(err, res) {
            if (err) throw err;
-           		   console.log("Please see how many are left in stock below.");
+           		   //console.log("Please see how many are left in stock below.");
                    //console.log(res);
 
                    if ((res[0].stock_quantity) < answers.number){
@@ -55,7 +55,7 @@ inquirer.prompt([
 
                    else{
                    	var price = (res[0].price);
-                   	console.log(price);
+                   	//console.log(price);
                    	var newQuantity = (res[0].stock_quantity - answers.number);
                    	var total = (answers.number * price);
                    	connection.query("UPDATE products SET stock_quantity = ? WHERE  id = ? ", [newQuantity, answers.buy], function(err,res){
